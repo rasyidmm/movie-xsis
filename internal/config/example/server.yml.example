@@ -1,0 +1,5 @@
+server:
+  rest:
+    name:
+    host:
+    port: 3000
