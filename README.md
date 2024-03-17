@@ -13,13 +13,18 @@
 ```bash
     git clone github.com/rasyidmm/movie-xsis
     cd movie-xsis
-    docker-compose up .
+    docker-compose up -d
 ```
 
 ## IP
     Server : http://172.27.0.2:3000/
     Database : 172.27.0.3
     Swagger : http://172.27.0.2:3000/swagger/index.html
+
+## Postman
+    dapat melakukan dengen postman
+- [Link Postman](https://github.com/rasyidmm/movie-xsis/blob/master/movie-xsis.postman_collection.json)
+
 ## Unit Test
 ```bash
     cd src/usecase/movie
