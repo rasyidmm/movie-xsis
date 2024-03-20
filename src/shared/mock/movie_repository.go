@@ -45,3 +45,11 @@ func (m *MovieRepository) GetMovies(ctx context.Context) (*[]entity.MovieEntity,
 	}
 	return nil, args.Error(1)
 }
+
+func (m *MovieRepository) GetMovieByLike(ctx context.Context, title string) (*[]entity.MovieEntity, error) {
+	args := m.Called(ctx, title)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).(*[]entity.MovieEntity), nil
+}
