@@ -7,6 +7,7 @@ import (
 
 func NewMovie(f fiber.Router, service *services.MovieService) *fiber.Router {
 	r := f.Group("/movie")
+	r.Get("/like", service.GetMovieByLike)
 	r.Get("/:id", service.GetMovie)
 	r.Get("/", service.GetMovies)
 	r.Post("/", service.CreateMovie)

@@ -194,6 +194,31 @@ paths:
       summary: Update Movie
       tags:
       - Movie
+  /v1/movie/like:
+    get:
+      description: Endpoint for  Get Movie By Like
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/payload.MoviePayload'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/web.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/web.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Get Movie By Like
+      tags:
+      - Movie
   /v1/movies:
     get:
       description: Endpoint for Get Movies

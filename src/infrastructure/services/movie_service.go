@@ -142,3 +142,24 @@ func (s *MovieService) DeleteMovie(ctx *fiber.Ctx) error {
 	return web.OKResponse(ctx, fiber.StatusOK, "success")
 
 }
+
+// GetMovieByLike: Handler function for Get Movie By Like
+// @Summary     Get Movie By Like
+// @Description Endpoint for  Get Movie By Like
+// @Tags        Movie
+// @Movie     json
+// @Query id path string true "title"
+// @Success     200     {object} []payload.MoviePayload
+// @Failure     400     {object} web.Response
+// @Failure     401     {object} web.Response
+// @Failure     500     {object} web.Response
+// @Router      /v1/movie/like [GET]
+func (s *MovieService) GetMovieByLike(ctx *fiber.Ctx) error {
+	title := ctx.Query("title")
+	result, err := s.MovieUsecase.GetMovieByLike(ctx.Context(), title)
+	if err != nil {
+		return web.ErrResponse(ctx, err)
+	}
+	return web.OKResponse(ctx, fiber.StatusOK, result)
+
+}

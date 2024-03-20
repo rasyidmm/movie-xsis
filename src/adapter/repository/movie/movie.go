@@ -54,3 +54,12 @@ func (m *MovieDataHandler) GetMovies(ctx context.Context) (*[]entity.MovieEntity
 	}
 	return result, nil
 }
+func (m *MovieDataHandler) GetMovieByLike(ctx context.Context, title string) (*[]entity.MovieEntity, error) {
+	var result *[]entity.MovieEntity
+	err := m.db.WithContext(ctx).Where("title LIKE ?", "%"+title+"%").Find(&result).Error
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}

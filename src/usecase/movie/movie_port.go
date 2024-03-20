@@ -2,6 +2,7 @@ package movie
 
 import (
 	"context"
+	"github.com/rasyidmm/movie-xsis/src/adapter/repository/entity"
 	"github.com/rasyidmm/movie-xsis/src/adapter/repository/movie"
 	"github.com/rasyidmm/movie-xsis/src/usecase/payload"
 )
@@ -22,4 +23,5 @@ type MoviePort interface {
 	DeleteMovie(ctx context.Context, id int64) error
 	GetMovie(ctx context.Context, id int64) (*payload.MoviePayload, error)
 	GetMovies(ctx context.Context) (*[]payload.MoviePayload, error)
+	GetMovieByLike(ctx context.Context, title string) (*[]entity.MovieEntity, error)
 }
